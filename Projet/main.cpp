@@ -7,11 +7,10 @@
 //
 
 #include <iostream>
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    
-    hhahahahahahahahahh
+#include "Coord.hpp"
+int main(){
+    Coord c1 = nouvCoord(2,1);
+    afficheCoord(c1);
+    std::cout << std::endl;
     return 0;
 }
