@@ -8,7 +8,15 @@
 
 #ifndef EnsCoord_hpp
 #define EnsCoord_hpp
-
-#include <stdio.h>
-
+#include "Coord.hpp"
+#define MAXENSCOORD 400
+struct EnsCoord{
+    Coord tab[MAXENSCOORD];
+    int nbElts;
+    
+};
+void afficheEnsCoord(EnsCoord EC);
+EnsCoord nouvEnsCoord();
+void ajouteEnsCoord(EnsCoord &EC, Coord C);
+int cardEC (EnsCoord EC);
 #endif /* EnsCoord_hpp */
