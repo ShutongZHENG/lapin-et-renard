@@ -7,6 +7,8 @@
 //
 
 #include "EnsCoord.hpp"
+#include <cstdlib>
+#include <ctime>
 //afficheEC
 void afficheEnsCoord(EnsCoord EC){
     for (int i=0; i<EC.nbElts; i++) {
@@ -51,3 +53,18 @@ EnsCoord voisines (Coord C){
        }
     return ECC;
     }
+// la fonction de Nombre aléatoire entre 0..taille-1
+int NombreAleatoire(int taille){
+    int res;
+    int b,a;
+    a=0;
+    b=taille;
+    res=rand() % b+ a;
+    return res;
+}
+
+//une fonction randomEC qui prend un ensemble de coordonnées en paramètre et retourne une coordonnée au hasard parmi cet ensemble
+Coord randomEC(EnsCoord EC){
+    int NbAleatoire=NombreAleatoire(EC.nbElts);
+    return EC.tab[NbAleatoire];
+}

@@ -20,4 +20,7 @@ EnsCoord nouvEnsCoord();
 void ajouteEnsCoord(EnsCoord &EC, Coord C);
 int cardEC (EnsCoord EC);
 EnsCoord voisines (Coord C);
+int NombreAleatoire(int taille);
+Coord randomEC(EnsCoord EC);
 #endif /* EnsCoord_hpp */
+
