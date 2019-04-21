@@ -29,3 +29,25 @@ void ajouteEnsCoord(EnsCoord &EC, Coord C){
 int cardEC (EnsCoord EC){
     return EC.nbElts;
 }
+/* retourne l’ensemble des coordonnées voisines de la coordonnée c */
+EnsCoord voisines (Coord C){
+    int X,Y,TAILLE;
+    EnsCoord ECC;
+    ECC=nouvEnsCoord();
+    X=getX(C);
+    Y=getY(C);
+    TAILLE=20;
+    for (int i=-1; i<2; i++) {
+        if (X+i>=0 && X+i<TAILLE) {
+            for (int j=-1; j<2; j++) {
+                if (Y+j>=0 && Y+j <TAILLE) {
+                    if(i!=0 || j!=0){
+                    ECC.tab[ECC.nbElts].col=Y+i;
+                    ECC.tab[ECC.nbElts].lig=X+j;
+                        ECC.nbElts++;}
+                }
+            }
+        }
+       }
+    return ECC;
+    }

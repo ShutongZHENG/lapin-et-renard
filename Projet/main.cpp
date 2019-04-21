@@ -11,16 +11,5 @@
 #include "EnsCoord.hpp"
 int main(){
     Coord c1 = nouvCoord(2,1);
-    Coord c2 = nouvCoord(3,4);
-    Coord c3 = nouvCoord(0,0);
-    // on construit un exemple d’ensemble
-    EnsCoord exemple = nouvEnsCoord();
-    ajouteEnsCoord(exemple, c1);
-    ajouteEnsCoord(exemple, c2);
-    ajouteEnsCoord(exemple, c3);
-    afficheEnsCoord(exemple);
-    // on ajoute encore un element
-    std::cout << "ajout d’un element :" << std::endl;
-    ajouteEnsCoord (exemple, nouvCoord(4,0));
-    afficheEnsCoord(exemple);
+    afficheEnsCoord(voisines(c1));
 }

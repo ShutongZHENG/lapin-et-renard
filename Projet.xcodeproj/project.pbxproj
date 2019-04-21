@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4B0533622267A61C004848DD /* EnsCoord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B0533602267A61C004848DD /* EnsCoord.cpp */; };
+		4B0533652267B4D5004848DD /* Grille.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B0533632267B4D5004848DD /* Grille.cpp */; };
+		4B0533682267B6ED004848DD /* Animal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B0533662267B6ED004848DD /* Animal.cpp */; };
 		4BAB91752267A20500A29730 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB91742267A20500A29730 /* main.cpp */; };
 		4BAB917D2267A43F00A29730 /* Coord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB917B2267A43F00A29730 /* Coord.cpp */; };
 /* End PBXBuildFile section */
@@ -27,6 +29,10 @@
 /* Begin PBXFileReference section */
 		4B0533602267A61C004848DD /* EnsCoord.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EnsCoord.cpp; sourceTree = "<group>"; };
 		4B0533612267A61C004848DD /* EnsCoord.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EnsCoord.hpp; sourceTree = "<group>"; };
+		4B0533632267B4D5004848DD /* Grille.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Grille.cpp; sourceTree = "<group>"; };
+		4B0533642267B4D5004848DD /* Grille.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Grille.hpp; sourceTree = "<group>"; };
+		4B0533662267B6ED004848DD /* Animal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animal.cpp; sourceTree = "<group>"; };
+		4B0533672267B6ED004848DD /* Animal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animal.hpp; sourceTree = "<group>"; };
 		4BAB91712267A20500A29730 /* Projet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Projet; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BAB91742267A20500A29730 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4BAB917B2267A43F00A29730 /* Coord.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Coord.cpp; sourceTree = "<group>"; };
@@ -68,6 +74,10 @@
 				4BAB917C2267A43F00A29730 /* Coord.hpp */,
 				4B0533602267A61C004848DD /* EnsCoord.cpp */,
 				4B0533612267A61C004848DD /* EnsCoord.hpp */,
+				4B0533632267B4D5004848DD /* Grille.cpp */,
+				4B0533642267B4D5004848DD /* Grille.hpp */,
+				4B0533662267B6ED004848DD /* Animal.cpp */,
+				4B0533672267B6ED004848DD /* Animal.hpp */,
 			);
 			path = Projet;
 			sourceTree = "<group>";
@@ -128,8 +138,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B0533682267B6ED004848DD /* Animal.cpp in Sources */,
 				4B0533622267A61C004848DD /* EnsCoord.cpp in Sources */,
 				4BAB91752267A20500A29730 /* main.cpp in Sources */,
+				4B0533652267B4D5004848DD /* Grille.cpp in Sources */,
 				4BAB917D2267A43F00A29730 /* Coord.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

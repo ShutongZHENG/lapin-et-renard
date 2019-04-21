@@ -19,4 +19,5 @@ void afficheEnsCoord(EnsCoord EC);
 EnsCoord nouvEnsCoord();
 void ajouteEnsCoord(EnsCoord &EC, Coord C);
 int cardEC (EnsCoord EC);
+EnsCoord voisines (Coord C);
 #endif /* EnsCoord_hpp */
