@@ -68,3 +68,13 @@ Coord randomEC(EnsCoord EC){
     int NbAleatoire=NombreAleatoire(EC.nbElts);
     return EC.tab[NbAleatoire];
 }
+//supprime un élément d’un ensemble de coordonnées. Num est le N° de element. N° commence à 1.
+void supprimeEC(EnsCoord &EC,int Num){
+    int Nb;
+    Nb=EC.nbElts;
+    for (int i=Num; i<=Nb; i++) {
+        EC.tab[i-1]=EC.tab[i];
+        
+    }
+    EC.nbElts--;
+}

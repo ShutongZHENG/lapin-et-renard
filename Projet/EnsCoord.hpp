@@ -22,5 +22,6 @@ int cardEC (EnsCoord EC);
 EnsCoord voisines (Coord C);
 int NombreAleatoire(int taille);
 Coord randomEC(EnsCoord EC);
+void supprimeEC(EnsCoord &EC,int Num);
 #endif /* EnsCoord_hpp */
 
