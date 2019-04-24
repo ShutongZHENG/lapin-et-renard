@@ -7,6 +7,8 @@
 //
 
 #include "Animal.hpp"
+#include <cstdlib>
+#include <ctime>
 Animal creerAnimal(espece E,Coord c){
     Animal New;
     if (E == renard) {
@@ -43,4 +45,25 @@ void mangeRenard(Animal &A){
 }
 void faimRenard(Animal &A){
     --A.FoodLapin;
+}
+//une fonction hasard qui retourne un nombre réel au hasard entre 0 et 1
+float hasard(){
+    return float(rand())/float(RAND_MAX);
+}
+bool mortAnimal(Animal A){
+    return A.FoodLapin==0;
+}
+bool seReproduitAnimal(Animal A, int NbFree){
+    if (A.Ep==lapin) {
+        if (NbFree==MinFreeBirthLapin||NbFree>MinFreeBirthLapin) {
+            return hasard()<=ProbBirthLapin;
+        }
+        return false;
+    }else{
+        if (A.FoodLapin >= FoodReprod) {
+            return hasard()<=ProbBirthRenard;
+        }
+        return false;
+
+    }
 }
