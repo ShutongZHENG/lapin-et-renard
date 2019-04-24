@@ -33,4 +33,5 @@ void faimRenard(Animal &A);
 float hasard();
 bool mortAnimal(Animal A);
 bool seReproduitAnimal(Animal A, int NbFree);
+
 #endif /* Animal_hpp */

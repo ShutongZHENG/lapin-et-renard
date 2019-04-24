@@ -23,4 +23,6 @@ Animal getAnimal(grille g, Coord C);
 void setAnimal(grille &g, Animal a);
 void initialiseGrille(grille &g);
 void ChangeDeuxCases(grille &g,Animal a1,Animal a2);
+EnsCoord voisinsVides(grille g, Coord c);
+
 #endif /* Grille_hpp */
