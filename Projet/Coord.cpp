@@ -14,8 +14,8 @@
 
 
 void creerCoord(Coord &C,int l, int c){
-    C.col=c;
     C.lig=l;
+    C.col=c;
 }
 Coord nouvCoord(int l, int c){
     Coord C;
