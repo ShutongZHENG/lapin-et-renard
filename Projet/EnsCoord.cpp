@@ -44,9 +44,9 @@ EnsCoord voisines (Coord C){
             for (int j=-1; j<2; j++) {
                 if (Y+j>=0 && Y+j <TAILLE) {
                     if(i!=0 || j!=0){
-                    ECC.tab[ECC.nbElts].col=Y+i;
-                    ECC.tab[ECC.nbElts].lig=X+j;
-                        ECC.nbElts++;}
+                    ECC.tab[ECC.nbElts].col=Y+j;
+                    ECC.tab[ECC.nbElts].lig=X+i;
+                    ECC.nbElts++;}
                 }
             }
         }

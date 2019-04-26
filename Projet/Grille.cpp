@@ -31,12 +31,12 @@ void setAnimal(grille &g, Animal a){
 void ChangeDeuxCases(grille &g,Animal a1,Animal a2){
     Coord transfert;
     transfert=coordAnimal(a2);
-     std::cout<<a1.C.lig<<","<<a1.C.col<<"-"<<a1.Ep<<" "<<a2.C.lig<<","<<a2.C.col<<"-"<<a2.Ep<<" ";
+    
     changeCoordAnimal(a2, a1.C);
    
     g.A[getX(a1.C)][getY(a1.C)]=a2;
     changeCoordAnimal(a1, transfert);
-    std::cout<<a1.C.lig<<","<<a1.C.col<<"-"<<a1.Ep<<" "<<a2.C.lig<<","<<a2.C.col<<"-"<<a2.Ep<<" "<<std::endl;
+
     g.A[getX(transfert)][getY(transfert)]=a1;
     
 }
@@ -63,7 +63,6 @@ void initialiseGrille(grille &g){
         hasard.lig=NombreAleatoire(20);
         hasard.col=NombreAleatoire(20);
         a=getAnimal(g, hasard);
-        std::cout<<hasard.lig<<","<<hasard.col<<"->"<<a.Ep<<" ";
         ChangeDeuxCases(g, g.A[i/20][i%20], a);
     }
 }
@@ -81,3 +80,49 @@ EnsCoord voisinsVides(grille g, Coord c){
     }
     return EC;
 }
+void afficheGrille(grille g){
+    for (int i=0; i<20; i++) {
+        for (int j =0; j<20; j++) {
+            switch ( g.A[i][j].Ep) {
+                case 0:
+                    std::cout<<"0 ";
+                    break;
+                case 1:
+                    std::cout<<"R ";
+                    break;
+                case 2:
+                    std::cout<<"L ";
+                    break;
+            }
+        }
+        std::cout<<std::endl;
+    }
+    std::cout<<std::endl;
+}
+void deplaceTousLapins(grille g1, grille &g2){
+    copieGrille(g1, g2);
+    EnsCoord EC_Lapin=nouvEnsCoord();
+    EnsCoord EC_t=nouvEnsCoord();
+    Coord C;
+    int X,Y;
+    for (int i=0; i<20; i++) {
+        for (int j=0; j<20; j++) {
+            if(g1.A[i][j].Ep==lapin){
+                ajouteEnsCoord(EC_Lapin, g1.A[i][j].C);
+            }
+        }
+    }
+    for (int i=0; i<EC_Lapin.nbElts; i++) {
+        X=getX(EC_Lapin.tab[i]);
+        Y=getY(EC_Lapin.tab[i]);
+        EC_t=voisinsVides(g2,EC_Lapin.tab[i]);
+        if (EC_t.nbElts==0) {
+            C=EC_Lapin.tab[i];
+        }else{
+        C=randomEC(EC_t);
+        }
+    
+        ChangeDeuxCases(g2, g2.A[X][Y], g2.A[getX(C)][getY(C)]);
+    }
+}
+void deplaceTousRenards(grille g1, grille &g2);

@@ -8,7 +8,31 @@
 
 #include <iostream>
 #include "Grille.hpp"
-int main(){
+#include <stdexcept>
+#include "MLV.h"
+using namespace mlv;
+void AfficheGraphie(grille g){
+    window_t fenetre( "Lapin & Renard", "Graphie", 640, 480 );
+    for (int i=0; i<20; i++) {
+        for (int j=0; j<20; j++) {
+            switch (g.A[i][j].Ep) {
+                case 0:
+                    fenetre.draw_rectangle ( {10*i, 10*i}, 9, 9, color::blanc );
+                    break;
+                case 1:
+                    fenetre.draw_rectangle ( {10*i, 10*i}, 9, 9, color::red );
+                case 2:
+                    fenetre.draw_rectangle ( {10*i, 10*i}, 9, 9, color::blue );
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    fenetre.update();
+    fenetre.wait_seconds( 10 );
+}
+int main(void){
     srand(time(0)); //Définir la graine de temps
     Coord C1 = nouvCoord(0,0);
     afficheEnsCoord(voisines(C1));
@@ -54,4 +78,11 @@ int main(){
         }
         std::cout<<std::endl;
     }
+    std::cout<<std::endl;
+    afficheGrille(g);
+    grille g2;
+    deplaceTousLapins(g, g2);
+    afficheGrille(g2);
+    AfficheGraphie(g2);
+    return 0;
 }
