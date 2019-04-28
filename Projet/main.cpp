@@ -17,7 +17,7 @@ void AfficheGraphie(grille g){
         for (int j=0; j<20; j++) {
             switch (g.A[i][j].Ep) {
                 case 0:
-                    fenetre.draw_rectangle ( {10*i, 10*j}, 9, 9, color::blanc );
+                    fenetre.draw_rectangle ( {10*i, 10*j}, 9, 9, color::white );
                     break;
                 case 1:
                     fenetre.draw_rectangle ( {10*i, 10*j}, 9, 9, color::red );
