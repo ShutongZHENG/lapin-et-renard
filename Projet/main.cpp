@@ -17,13 +17,13 @@ void AfficheGraphie(grille g){
         for (int j=0; j<20; j++) {
             switch (g.A[i][j].Ep) {
                 case 0:
-                    fenetre.draw_rectangle ( {10*i, 10*j}, 9, 9, color::white );
+                    fenetre.draw_filled_rectangle ( {10*i, 10*j}, 9, 9, color::white );
                     break;
                 case 1:
-                    fenetre.draw_rectangle ( {10*i, 10*j}, 9, 9, color::red );
+                    fenetre.draw_filled_rectangle ( {10*i, 10*j}, 9, 9, color::red );
                     break;
                 case 2:
-                    fenetre.draw_rectangle ( {10*i, 10*j}, 9, 9, color::blue );
+                    fenetre.draw_filled_rectangle ( {10*i, 10*j}, 9, 9, color::blue );
                     break;
                 default:
                     break;
