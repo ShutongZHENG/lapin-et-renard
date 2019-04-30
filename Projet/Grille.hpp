@@ -24,6 +24,7 @@ void setAnimal(grille &g, Animal a);
 void initialiseGrille(grille &g);
 void ChangeDeuxCases(grille &g,Animal a1,Animal a2);
 EnsCoord voisinsVides(grille g, Coord c);
+EnsCoord voisinsLapin(grille g, Coord c);
 void deplaceTousLapins(grille g1, grille &g2);
 void deplaceTousRenards(grille g1, grille &g2);
 void afficheGrille(grille g);

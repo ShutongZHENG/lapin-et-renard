@@ -19,9 +19,12 @@ Animal creerAnimal(espece E,Coord c){
     else if (E==lapin){
         New.Ep=lapin;
         New.C=c;
+        New.FoodLapin=0;
     }else{
         New.Ep=vide;
         New.C=c;
+        New.FoodLapin=0;
+        
     }
     return New;
 }
