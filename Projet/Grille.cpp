@@ -48,6 +48,7 @@ void grilleVide(grille &g){
         }
     }
 }
+ window_t fenetre( "Lapin & Renard", "Graphie", 640, 480 ); // cree la fenetre
 void copieGrille(grille g1, grille &g2){
     g2=g1;
 }
@@ -156,7 +157,7 @@ void deplaceTousLapins(grille g1, grille &g2){
             }
         }
     }
-   window_t fenetre( "Lapin & Renard", "Graphie", 640, 480 ); // cree la fenetre
+  
     
     
     for (int i=0; i<EC_Lapin.nbElts; i++) {
@@ -254,8 +255,32 @@ void deplaceTousRenards(grille g1, grille &g2){
             ChangeDeuxCases(g2, g2.A[X_renard][Y_renard], g2.A[X_vide][Y_vide]);
             
         }
+        
+        
+        /* update the infomation */
+        for (int i=0; i<20; i++) {
+            for (int j=0; j<20; j++) {
+                switch (g2.A[i][j].Ep) {
+                    case 0:
+                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::white );
+                        break;
+                    case 1:
+                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::red );
+                        break;
+                    case 2:
+                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::blue );
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        fenetre.update();
+        fenetre.wait_milliseconds( 42 );
+        
+        
 
     }
-  std::cout<<"nb_lapin:"<<g2.nbLapin<<std::endl;
+    std::cout<<"nb_lapin:"<<g2.nbLapin<<std::endl;
     std::cout<<"nb_renard:"<<g2.nbRenard<<std::endl;
 }
