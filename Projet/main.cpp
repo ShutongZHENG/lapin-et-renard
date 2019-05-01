@@ -10,7 +10,7 @@
 #include "Grille.hpp"
 
 int main(void){
-    srand(time(0)); //Définir la graine de temps
+    srand(time(0)); //Définir la graine de temps.
     std::cout <<std::endl;
     grille g;
     grille g2;
