@@ -236,7 +236,7 @@ void deplaceTousRenards(grille g1, grille &g2){
             g2.nbRenard--;
             g2.A[X_renard][Y_renard].Ep=vide;
         }else{
-            while (EC_t.nbElts!=0 && g2.A[X_renard][Y_renard].FoodLapin!=10) {
+            while (EC_t.nbElts>0 && g2.A[X_renard][Y_renard].FoodLapin<10) {
                 C_lapin=randomEC(EC_t);
                 X_lapin=getX(C_lapin);
                 Y_lapin=getY(C_lapin);
