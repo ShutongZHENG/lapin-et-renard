@@ -192,13 +192,13 @@ void deplaceTousLapins(grille g1, grille &g2){
                     default:
                         break;
                 }
-                fenetre.draw_text( point_t(340, 300), "Voici un exemple de texte.", color::magenta );
-                fenetre.draw_text( point_t(340, 301), "Voici un exemple de texte.", color::magenta );
-                fenetre.draw_text( point_t(340, 310), "Voici un exemple de texte.", color::magenta );
-                fenetre.update();
-                fenetre.wait_milliseconds( 42 );
+                
             }
-            
+            fenetre.draw_text( point_t(340, 300), "Voici un exemple de texte.", color::magenta );
+            fenetre.draw_text( point_t(340, 301), "Voici un exemple de texte.", color::magenta );
+            fenetre.draw_text( point_t(340, 310), "Voici un exemple de texte.", color::magenta );
+            fenetre.update();
+            fenetre.wait_milliseconds( 42 );
         }
         
         
@@ -279,12 +279,15 @@ void deplaceTousRenards(grille g1, grille &g2){
                     default:
                         break;
                 }
-                fenetre.draw_text( point_t(540, 300), "Voici un exemple de texte.", color::magenta );
-                fenetre.draw_text( point_t(540, 301), "Voici un exemple de texte.", color::magenta );
-                fenetre.draw_text( point_t(540, 310), "Voici un exemple de texte.", color::magenta );
-                fenetre.update();
-                fenetre.wait_milliseconds( 42 );
+                
             }
+            fenetre.draw_text( point_t(340, 300), "Voici un exemple de texte.", color::magenta );
+            fenetre.draw_text( point_t(340, 301), "Voici un exemple de texte.", color::magenta );
+            fenetre.draw_text( point_t(340, 310), "Voici un exemple de texte.", color::magenta );
+            fenetre.update();
+            fenetre.wait_milliseconds( 42 );
+            
+            
             
         }
       
