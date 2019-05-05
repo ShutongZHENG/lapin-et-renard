@@ -276,15 +276,19 @@ void deplaceTousRenards(grille g1, grille &g2){
                         break;
                 }
             }
+            fenetre.draw_text( point_t(540, 300), "Voici un exemple de texte.", color::magenta );
+            fenetre.draw_text( point_t(540, 301), "Voici un exemple de texte.", color::magenta );
+            fenetre.draw_text( point_t(540, 310), "Voici un exemple de texte.", color::magenta );
+            fenetre.update();
+            fenetre.wait_milliseconds( 42 );
         }
-        fenetre.update();
-        fenetre.wait_milliseconds( 42 );
+      
         
         
 
     }
     std::cout<<"nb_lapin:"<<g2.nbLapin<<std::endl;
     std::cout<<"nb_renard:"<<g2.nbRenard<<std::endl;
-    std::cout<<"Press biuton"<<std::endl;
+    std::cout<<"Press bouton"<<std::endl;
    
 }
