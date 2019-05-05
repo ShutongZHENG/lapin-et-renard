@@ -242,6 +242,7 @@ void deplaceTousRenards(grille g1, grille &g2){
                 Y_lapin=getY(C_lapin);
                 mangeRenard(g2.A[X_renard][Y_renard]);
                 g2.nbLapin--;
+                
                 if (seReproduitAnimal(g2.A[X_renard][Y_renard], 1)) {
                         g2.nbRenard++;
                         g2.A[X_lapin][Y_lapin]=creerAnimal(renard, g2.A[X_lapin][Y_lapin].C);
@@ -252,39 +253,59 @@ void deplaceTousRenards(grille g1, grille &g2){
                 }
                 ChangeDeuxCases(g2, g2.A[X_renard][Y_renard], g2.A[X_lapin][Y_lapin]);
                 EC_Renard.tab[i]=nouvCoord(X_lapin, Y_lapin);
-                EC_t= voisinsLapin(g2, EC_Renard.tab[i]);
+                EC_t = voisinsLapin(g2, EC_Renard.tab[i]);
             }
             EC_t=voisinsVides(g2, EC_Renard.tab[i]);
             C_vide=randomEC(EC_t);
             X_vide=getX(C_vide);
             Y_vide=getY(C_vide);
             ChangeDeuxCases(g2, g2.A[X_renard][Y_renard], g2.A[X_vide][Y_vide]);
-            
+            for (int i=0; i<20; i++) {
+                for (int j=0; j<20; j++) {
+                    switch (g2.A[i][j].Ep) {
+                        case 0:
+                            fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::white );
+                            break;
+                        case 1:
+                            fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::red );
+                            break;
+                        case 2:
+                            fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::blue );
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                }
+                fenetre.draw_text( point_t(340, 300), "Voici un exemple de texte.", color::magenta );
+                fenetre.draw_text( point_t(340, 301), "Voici un exemple de texte.", color::magenta );
+                fenetre.draw_text( point_t(340, 310), "Voici un exemple de texte.", color::magenta );
+                fenetre.update();
         }
         
         
-        /* update the infomation */
-        for (int i=0; i<20; i++) {
-            for (int j=0; j<20; j++) {
-                switch (g2.A[i][j].Ep) {
-                    case 0:
-                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::white );
-                        break;
-                    case 1:
-                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::red );
-                        break;
-                    case 2:
-                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::blue );
-                        break;
-                    default:
-                        break;
-                }
-                
-            }
-            fenetre.draw_text( point_t(340, 300), "Voici un exemple de texte.", color::magenta );
-            fenetre.draw_text( point_t(340, 301), "Voici un exemple de texte.", color::magenta );
-            fenetre.draw_text( point_t(340, 310), "Voici un exemple de texte.", color::magenta );
-            fenetre.update();
+//        /* update the infomation */
+//        for (int i=0; i<20; i++) {
+//            for (int j=0; j<20; j++) {
+//                switch (g2.A[i][j].Ep) {
+//                    case 0:
+//                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::white );
+//                        break;
+//                    case 1:
+//                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::red );
+//                        break;
+//                    case 2:
+//                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::blue );
+//                        break;
+//                    default:
+//                        break;
+//                }
+//                
+//            }
+//            fenetre.draw_text( point_t(340, 300), "Voici un exemple de texte.", color::magenta );
+//            fenetre.draw_text( point_t(340, 301), "Voici un exemple de texte.", color::magenta );
+//            fenetre.draw_text( point_t(340, 310), "Voici un exemple de texte.", color::magenta );
+//            fenetre.update();
             fenetre.wait_milliseconds( 42 );
             
             
