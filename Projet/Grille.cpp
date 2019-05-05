@@ -193,9 +193,10 @@ void deplaceTousLapins(grille g1, grille &g2){
                         break;
                 }
             }
+            fenetre.update();
+            fenetre.wait_milliseconds( 42 );
         }
-        fenetre.update();
-        fenetre.wait_milliseconds( 42 );
+       
         
         
         
@@ -285,5 +286,5 @@ void deplaceTousRenards(grille g1, grille &g2){
     std::cout<<"nb_lapin:"<<g2.nbLapin<<std::endl;
     std::cout<<"nb_renard:"<<g2.nbRenard<<std::endl;
     std::cout<<"Press biuton"<<std::endl;
-    std::cin>>S;
+    std::cin>>;
 }
