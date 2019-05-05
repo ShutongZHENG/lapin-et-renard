@@ -70,6 +70,7 @@ void ChangeDeuxCases(grille &g,Animal a1,Animal a2){
     g.A[getX(transfert)][getY(transfert)]=a1;
     
 }
+
 void initialiseGrille(grille &g){
     Coord hasard;
     Animal a;
@@ -206,6 +207,7 @@ void deplaceTousLapins(grille g1, grille &g2){
     std::cout<<"nb_lapin:"<<g2.nbLapin<<std::endl;
 }
 void deplaceTousRenards(grille g1, grille &g2){
+    std::string S;
     copieGrille(g1, g2);
     EnsCoord EC_Renard=nouvEnsCoord();
     EnsCoord EC_t=nouvEnsCoord();
@@ -224,7 +226,6 @@ void deplaceTousRenards(grille g1, grille &g2){
         X_renard=getX(EC_Renard.tab[i]);
         Y_renard=getY(EC_Renard.tab[i]);
         faimRenard(g2.A[X_renard][Y_renard]);
-        
         EC_t= voisinsLapin(g2, EC_Renard.tab[i]);
         if (mortAnimal(g2.A[X_renard][Y_renard])) {
             g2.nbRenard--;
@@ -283,4 +284,6 @@ void deplaceTousRenards(grille g1, grille &g2){
     }
     std::cout<<"nb_lapin:"<<g2.nbLapin<<std::endl;
     std::cout<<"nb_renard:"<<g2.nbRenard<<std::endl;
+    std::cout<<"Press biuton"<<std::endl;
+    std::cin>>S;
 }
