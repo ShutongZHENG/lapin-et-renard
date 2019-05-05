@@ -255,7 +255,7 @@ void deplaceTousRenards(grille g1, grille &g2){
                 ChangeDeuxCases(g2, g2.A[X_renard][Y_renard], g2.A[X_lapin][Y_lapin]);
                 EC_Renard.tab[i]=nouvCoord(X_lapin, Y_lapin);
                 EC_t = voisinsLapin(g2, EC_Renard.tab[i]);
-                 std::cout<<"A："<<X_lapin<<","<<Y_lapin;
+                 std::cout<<" "<<X_lapin<<","<<Y_lapin;
             }
              std::cout<<"->"<<X_lapin<<","<<Y_lapin;
              std::cout<<std::endl;
