@@ -6,6 +6,7 @@
 //  Copyright © 2019 Shutong ZHENG. All rights reserved.
 //
 #include <iostream>
+#include <string>
 #include "Grille.hpp"
 
 #include <stdexcept>
@@ -33,13 +34,11 @@ using namespace mlv;
 //    fenetre.update();
 //    fenetre.wait_milliseconds( 42 );
 //}
-
-
-
-
+window_t fenetre( "Lapin & Renard_Version_1", "Graphie", 640, 480 ); // cree la fenetre
 void grilleVide(grille &g){
     g.nbLapin=0;
     g.nbRenard=0;
+    g.tour=1;
     for (int i=0; i<20; i++) {
         for (int j=0; j<20; j++) {
             g.A[i][j].Ep=vide;
@@ -48,7 +47,7 @@ void grilleVide(grille &g){
         }
     }
 }
- window_t fenetre( "Lapin & Renard", "Graphie", 640, 480 ); // cree la fenetre
+
 void copieGrille(grille g1, grille &g2){
     g2=g1;
 }
@@ -61,17 +60,16 @@ void setAnimal(grille &g, Animal a){
 void ChangeDeuxCases(grille &g,Animal a1,Animal a2){
     Coord transfert;
     transfert=coordAnimal(a2);
-    
     changeCoordAnimal(a2, a1.C);
-   
     g.A[getX(a1.C)][getY(a1.C)]=a2;
     changeCoordAnimal(a1, transfert);
-
     g.A[getX(transfert)][getY(transfert)]=a1;
+
     
 }
 
 void initialiseGrille(grille &g){
+    
     Coord hasard;
     Animal a;
     grilleVide(g);
@@ -144,7 +142,9 @@ void afficheGrille(grille g){
     }
     std::cout<<std::endl;
 }
+
 void deplaceTousLapins(grille g1, grille &g2){
+    
     copieGrille(g1, g2);
     EnsCoord EC_Lapin=nouvEnsCoord();
     // EC_t pour EnseCood_Voisins
@@ -158,9 +158,14 @@ void deplaceTousLapins(grille g1, grille &g2){
             }
         }
     }
-  
-    
-    
+    fenetre.clear(color::black);
+    fenetre.draw_text( point_t(280, 0), "Le tour :", color::magenta );
+    fenetre.draw_text( point_t(340, 0), std::to_string(g2.tour++), color::magenta );
+    fenetre.draw_text( point_t(280, 20), "Lapin:", color::magenta );
+    fenetre.draw_text( point_t(330, 20), std::to_string(g2.nbLapin), color::magenta );
+    fenetre.draw_text( point_t(280, 40), "Renard:", color::magenta );
+    fenetre.draw_text( point_t(340, 40), std::to_string(g2.nbRenard), color::magenta );
+
     for (int i=0; i<EC_Lapin.nbElts; i++) {
         X=getX(EC_Lapin.tab[i]);
         Y=getY(EC_Lapin.tab[i]);
@@ -175,7 +180,6 @@ void deplaceTousLapins(grille g1, grille &g2){
             g2.nbLapin++;
         }
         ChangeDeuxCases(g2, g2.A[X][Y], g2.A[getX(C)][getY(C)]);
-
         /* update the infomation */
         for (int i=0; i<20; i++) {
             for (int j=0; j<20; j++) {
@@ -196,23 +200,13 @@ void deplaceTousLapins(grille g1, grille &g2){
             }
            
         }
-        fenetre.draw_text( point_t(340, 300), "Voici un exemple de texte.", color::magenta );
-        fenetre.draw_text( point_t(340, 301), "Voici un exemple de texte.", color::magenta );
-        fenetre.draw_text( point_t(340, 310), "Voici un exemple de texte.", color::magenta );
         fenetre.update();
         fenetre.wait_milliseconds( 42 );
-        
-        
-        
-        
-        
-        
         
     }
     std::cout<<"nb_lapin:"<<g2.nbLapin<<std::endl;
 }
 void deplaceTousRenards(grille g1, grille &g2){
-    std::string S;
     copieGrille(g1, g2);
     EnsCoord EC_Renard=nouvEnsCoord();
     EnsCoord EC_t=nouvEnsCoord();
@@ -240,10 +234,9 @@ void deplaceTousRenards(grille g1, grille &g2){
                 C_lapin=randomEC(EC_t);
                 X_lapin=getX(C_lapin);
                 Y_lapin=getY(C_lapin);
-                std::cout<<"A："<<X_lapin<<","<<Y_lapin;
                 mangeRenard(g2.A[X_renard][Y_renard]);
+                std::cout<<"--"<<"Food de renard:"<<g2.A[X_renard][Y_renard].FoodLapin <<"------";
                 g2.nbLapin--;
-                
                 if (seReproduitAnimal(g2.A[X_renard][Y_renard], 1)) {
                         g2.nbRenard++;
                         g2.A[X_lapin][Y_lapin]=creerAnimal(renard, g2.A[X_lapin][Y_lapin].C);
@@ -253,58 +246,49 @@ void deplaceTousRenards(grille g1, grille &g2){
         
                 }
                 ChangeDeuxCases(g2, g2.A[X_renard][Y_renard], g2.A[X_lapin][Y_lapin]);
+                EC_Renard.tab[i]=nouvCoord(X_lapin, Y_lapin);
                 X_renard=getX(EC_Renard.tab[i]);
                 Y_renard=getY(EC_Renard.tab[i]);
-                EC_Renard.tab[i]=nouvCoord(X_lapin, Y_lapin);
                 EC_t = voisinsLapin(g2, EC_Renard.tab[i]);
                 
-                 std::cout<<" "<<X_lapin<<","<<Y_lapin;
+              
+              
+            
+            
             }
-             std::cout<<"->"<<X_lapin<<","<<Y_lapin;
-             std::cout<<std::endl;
+            std::cout<<std::endl;
             EC_t=voisinsVides(g2, EC_Renard.tab[i]);
             C_vide=randomEC(EC_t);
             X_vide=getX(C_vide);
             Y_vide=getY(C_vide);
             ChangeDeuxCases(g2, g2.A[X_renard][Y_renard], g2.A[X_vide][Y_vide]);
-            
+  
         }
-        
-        
-        /* update the infomation */
-        for (int i=0; i<20; i++) {
-            for (int j=0; j<20; j++) {
-                switch (g2.A[i][j].Ep) {
-                    case 0:
-                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::white );
-                        break;
-                    case 1:
-                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::red );
-                        break;
-                    case 2:
-                        fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::blue );
-                        break;
-                    default:
-                        break;
-                }
-                
+     
+    }
+    /* update the infomation */
+    for (int i=0; i<20; i++) {
+        for (int j=0; j<20; j++) {
+            switch (g2.A[i][j].Ep) {
+                case 0:
+                    fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::white );
+                    break;
+                case 1:
+                    fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::red );
+                    break;
+                case 2:
+                    fenetre.draw_filled_rectangle ( {10*j, 10*i}, 9, 9, color::blue );
+                    break;
+                default:
+                    break;
             }
-            fenetre.draw_text( point_t(340, 300), "Voici un exemple de texte.", color::magenta );
-            fenetre.draw_text( point_t(340, 301), "Voici un exemple de texte.", color::magenta );
-            fenetre.draw_text( point_t(340, 310), "Voici un exemple de texte.", color::magenta );
-            fenetre.update();
-            fenetre.wait_milliseconds( 42 );
-            
-            
             
         }
-      
-        
-        
-
+        fenetre.update();
+        fenetre.wait_milliseconds( 42 );
     }
     std::cout<<"nb_lapin:"<<g2.nbLapin<<std::endl;
     std::cout<<"nb_renard:"<<g2.nbRenard<<std::endl;
-    std::cout<<"Press bouton"<<std::endl;
+
    
 }
