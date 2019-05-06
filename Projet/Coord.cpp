@@ -12,7 +12,6 @@
 #define ASSERT(test) if (!(test)) std::cout << "Test failed in file " << __FILE__ \
 << " line " << __LINE__ << ": " #test << std::endl
 
-
 void creerCoord(Coord &C,int l, int c){
     C.lig=l;
     C.col=c;

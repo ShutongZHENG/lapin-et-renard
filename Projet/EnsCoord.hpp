@@ -10,11 +10,13 @@
 #define EnsCoord_hpp
 #include "Coord.hpp"
 #define MAXENSCOORD 400
+
 struct EnsCoord{
     Coord tab[MAXENSCOORD];
     int nbElts;
     
 };
+
 void afficheEnsCoord(EnsCoord EC);
 EnsCoord nouvEnsCoord();
 void ajouteEnsCoord(EnsCoord &EC, Coord C);

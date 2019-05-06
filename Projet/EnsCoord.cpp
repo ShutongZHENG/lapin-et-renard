@@ -9,6 +9,7 @@
 #include "EnsCoord.hpp"
 #include <cstdlib>
 #include <ctime>
+
 //afficheEC
 void afficheEnsCoord(EnsCoord EC){
     for (int i=0; i<EC.nbElts; i++) {

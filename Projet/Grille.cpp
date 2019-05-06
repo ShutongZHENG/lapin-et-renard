@@ -8,7 +8,6 @@
 #include <iostream>
 #include <string>
 #include "Grille.hpp"
-
 #include <stdexcept>
 #include "MLV.h"
 using namespace mlv;

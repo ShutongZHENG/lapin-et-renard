@@ -9,6 +9,7 @@
 #include "Animal.hpp"
 #include <cstdlib>
 #include <ctime>
+
 Animal creerAnimal(espece E,Coord c){
     Animal New;
     if (E == renard) {

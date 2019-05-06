@@ -16,6 +16,7 @@ struct grille{
     int nbRenard;
     Animal A[20][20];
     int tour;
+
 };
 
 void grilleVide(grille &g);

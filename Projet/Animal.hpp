@@ -3,7 +3,7 @@
 //  Projet
 //
 //  Created by Shutong ZHENG on 17/04/2019.
-//  Copyright © 2019 Shutong ZHENG and Nicolas LANTRAN. All rights reserved.
+//  Copyright © 2019 Shutong ZHENG. All rights reserved.
 //
 
 #ifndef Animal_hpp
@@ -22,6 +22,7 @@ struct Animal{
     Coord C;
     int FoodLapin;
 };
+
 Animal creerAnimal(espece E,Coord c);
 Coord coordAnimal(Animal A);
 espece especeAnimal(Animal A);
