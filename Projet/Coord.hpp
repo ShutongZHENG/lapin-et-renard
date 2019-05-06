@@ -2,7 +2,7 @@
 //  Coord.hpp
 //  Projet
 //
-//  Created by Shutong ZHENG and Nicolas LANTRAN on 17/04/2019.
+//  Created by Shutong ZHENG LANTRAN on 17/04/2019.
 //  Copyright © 2019 Shutong ZHENG. All rights reserved.
 //
 

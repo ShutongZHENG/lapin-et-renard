@@ -14,6 +14,7 @@ int main(void){
     std::cout <<std::endl;
     grille g;
     grille g2;
+    // initialiser la grille;
     initialiseGrille(g);
     
     while (g2.nbLapin!=0 && g2.nbRenard!=0) {
